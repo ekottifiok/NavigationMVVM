@@ -1,0 +1,26 @@
+﻿<Application x:Class="AmazingNavigation2.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:viewModel="clr-namespace:AmazingNavigation2.MVVM.ViewModels"
+             xmlns:views="clr-namespace:AmazingNavigation2.MVVM.Views">
+    <Application.Resources>
+         <DataTemplate DataType="{x:Type TypeName=viewModel:HomeViewModel}">
+             <views:HomeView />
+         </DataTemplate>
+        <DataTemplate DataType="{x:Type TypeName=viewModel:ServerSettingViewModel}">
+            <views:ServerSettingView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type TypeName=viewModel:ClientSettingViewModel}">
+            <views:ClientSettingView />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type TypeName=viewModel:SendReceiveFileViewModel}">
+            <views:SendReceiveFile />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type TypeName=viewModel:PeerActivity}">
+            <views:PeerActivity />
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type TypeName=viewModel:PeerListingViewModel}">
+            <views:PeersListingView />
+        </DataTemplate>
+    </Application.Resources>
+</Application>
