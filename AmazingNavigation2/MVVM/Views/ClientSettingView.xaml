@@ -30,13 +30,13 @@
                 <TextBlock Text="Server's IP Address"/>
                 <TextBox Margin="10 0 0 0" 
                          Text="{Binding ServerIpAddress, Mode=TwoWay}" 
-                         Width="50"/>
+                         Width="150"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Server's Port"/>
                 <TextBox Margin="10 0 0 0" 
                          Text="{Binding ServerPort, Mode=TwoWay}" 
-                         Width="25"/>
+                         Width="50" />
             </StackPanel>
             <Button Content="Submit" Command="{Binding SubmitServerCommand}"/>
         </StackPanel>

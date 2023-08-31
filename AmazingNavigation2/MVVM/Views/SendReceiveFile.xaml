@@ -12,7 +12,17 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         
-        <ContentControl Grid.Column="0" Content="{Binding UsersListing}" />
-        <ContentControl Grid.Column="1" Content="{Binding Activity}" />
+        <ListView Grid.Column="0" Margin="0 20 0 0" 
+                  ItemsSource="{Binding PeopleList}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding DeviceName}"
+                                    Header="Device Name" />
+                    <GridViewColumn DisplayMemberBinding="{Binding IpAddress}"
+                                    Header="IP Address" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <StackPanel Grid.Column="1" Background="Blue"/>
     </Grid>
 </UserControl>

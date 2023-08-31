@@ -16,11 +16,5 @@
         <DataTemplate DataType="{x:Type TypeName=viewModel:SendReceiveFileViewModel}">
             <views:SendReceiveFile />
         </DataTemplate>
-        <DataTemplate DataType="{x:Type TypeName=viewModel:PeerActivity}">
-            <views:PeerActivity />
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type TypeName=viewModel:PeerListingViewModel}">
-            <views:PeersListingView />
-        </DataTemplate>
     </Application.Resources>
 </Application>

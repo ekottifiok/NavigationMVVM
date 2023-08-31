@@ -15,7 +15,9 @@ public class ServerSettingViewModel : ViewModelBase
     private readonly Device _device;
     private int _port;
     private bool _isLoading;
-    
+
+    public IPAddress[] IpAddresses => Dns.GetHostEntry(Dns.GetHostName()).AddressList;
+    public int SelectedItem { get; set; }
     public string? MyIpAddress => _device?.IpAddress?.ToString();
     public RelayCommand StartServerCommand { get; set; }
 
@@ -41,6 +43,7 @@ public class ServerSettingViewModel : ViewModelBase
     public ServerSettingViewModel(INavigationService navigationService, 
         DeviceStore deviceStore)
     {
+        SelectedItem = 0;
         _device = deviceStore.Device ?? new Device();
         _navigationService = navigationService;
         _port = 0;
@@ -60,7 +63,8 @@ public class ServerSettingViewModel : ViewModelBase
     private void ExecuteStartServer(object? obj)
     {
         Socket listener = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-        if (_device.IpAddress != null) listener.Bind(new IPEndPoint(_device.IpAddress, _device.Port));
+        _device.IpAddress = IpAddresses[SelectedItem];
+        listener.Bind(new IPEndPoint(_device.IpAddress, _device.Port));
         _device.SocketInstance = listener;
         NavigationService.NavigateTo<SendReceiveFileViewModel>();
     }

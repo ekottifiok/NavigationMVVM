@@ -9,11 +9,9 @@ public class DeviceStore
 {
     public DeviceStore()
     {
-        IPHostEntry host = Dns.GetHostEntry(Dns.GetHostName());
         Device = new Device()
         {
-            IpAddress = host.AddressList[1], 
-             SocketInstance= new Socket(AddressFamily.InterNetwork,
+            SocketInstance= new Socket(AddressFamily.InterNetwork,
             SocketType.Stream, ProtocolType.Tcp)
         };
     }

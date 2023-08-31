@@ -46,18 +46,20 @@ public class ClientSettingViewModel : ViewModelBase
         IPEndPoint endPoint = new IPEndPoint(address, port);
         try
         {
+            _device.SocketInstance = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             Socket socket = _device.SocketInstance;
             socket.Connect(endPoint);
             if (socket.RemoteEndPoint == null)
             {
                 throw new Exception("An error occured when handling the remote Endpoint");
             }
-            _navigationService.NavigateTo<SendReceiveFileViewModel>();
+            
         }
         catch (Exception exception)
         {
             MessageBox.Show(exception.Message);
             throw;
         }
+        _navigationService.NavigateTo<SendReceiveFileViewModel>();
     }
 }

@@ -29,7 +29,10 @@
             <TextBlock Text="Server" FontSize="20"/>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Your LAN IP Address: "/>
-                <TextBlock Text="{Binding MyIpAddress}" />
+                <ComboBox ItemsSource="{Binding IpAddresses}"
+                          SelectedIndex="{Binding SelectedItem, Mode=TwoWay}"
+                          IsReadOnly="true"
+                          Foreground="Black"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Use this Port: "/>
